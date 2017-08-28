@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>QUIZ</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body ng-app="quizApp" ng-controller="questionCtrl">
+
+    <!-- WRAPPER START -->
+    <div id="wrapper">
+      <h1>QUIZ</h1>
+      
+      <!-- FRÅGESIDA START -->
+        <div ng-if="currentIndex != questions.length">
+
+            <!-- Fråga  -->
+            <div id="question">
+              {{questions[currentIndex].question}}
+            </div>
+
+            <!-- Svarsalternativ -->
+            <form>
+              <div class="answers" ng-repeat="a in questions[currentIndex].answers">
+                <input type="radio" name="option" ng-click="saveAnswer(a.isCorrect, a.answer)"> 
+                {{a.answer}}
+              </div>
+                <input type="button" value="Previous" ng-click="previousQuestion()" ng-show="currentIndex != 0">
+
+                <input type="button" value="Next" ng-click="nextQuestion()">
+          </form>
+          
+        </div> 
+      <!-- FRÅGESIDA SLUT -->
+      
+      <!-- Resultatsida -->
+      <div ng-if="currentIndex === questions.length">
+        Result: {{rightAnswerCounter}}/{{questions.length}} rätt
+          <br /><br />
+        Your answers:
+        <ol>
+        <div class="yourAnswers" ng-repeat="a in listOfAnswers">
+            <li>{{a}}</li>
+          </div>
+        </ol>
+          <input type="button" value="Re-do quiz" ng-click="firstQuestion()">
+      </div>
+
+    </div> 
+    <!-- WRAPPER SLUT -->
+
+    <!-- SCRIPTS -->
+    <script src="angular.min.js"></script>
+    <script src="code.js"></script>
+  </body>
+</html>

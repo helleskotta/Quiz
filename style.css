@@ -1,0 +1,48 @@
+body{
+    font-family: 'Open Sans';
+    background: #C0C0C0;
+}
+
+#wrapper{
+    width:400px;
+    border-radius: 20px;
+    border:2px dotted black;
+    margin:auto;
+    margin-top: 40px;
+    padding:50px;
+    text-align: center;
+    background: white;
+}
+
+h1{
+    font-family: 'Roboto';
+    text-align: center;
+    padding-top: 30px;
+}
+
+.answers{
+    width:200px;
+    text-align: left;
+    margin:auto;
+}
+
+.yourAnswers{
+    text-align: left;
+}
+
+input[type=button]{
+    font-family: 'Open sans';
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 5px 20px;
+    margin-top: 20px;
+    background: #C0C0C0;    
+}
+
+input[type=button]:hover{
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19);
+}
+
+input[type=button]:active{
+    background: #333333;
+}
